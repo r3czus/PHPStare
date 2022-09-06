@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Konfigurator TV</title>
+</head>
+<body>
+    <h1>Wybierz pakiety</h1>
+    <input type="checkbox" name="pakiet" value="12" disabled> 12 zł - Podstawowy (obowiązkowy) <br>
+    <input type="checkbox" name="pakiet" value="15"> 15 zł - Dla dzieci <br>
+    <input type="checkbox" name="pakiet" value="20"> 20 zł - Sportowy <br>
+    <input type="checkbox" name="pakiet" value="10"> 10 zł - Filmowy <br>
+    <input type="checkbox" name="pakiet" value="5"> 5 zł - Naukowy
+    <h2>Wybierz czas umowy</h2>
+    <input type="radio" name="czas" value="1"> 12 miesięcy <br>
+    <input type="radio" name="czas" value="0.8"> 24 miesiące (80% normalnej ceny!) <br>
+    <input type="button" value="Wybierz" onclick="licz()">
+    <p id="wynik"></p>
+    <script>
+        function licz()
+        {
+            let pakiety=document.getElementsByName("pakiet");
+            let suma=0;
+            pakiety.forEach(pakiet => {
+                if(pakiet.checked)
+                { suma+=parseInt(pakiet.value); }
+            });
+            let czas=document.getElementsByName("czas");
+            let wybor=1, procent=1, promocja=0;
+            czas.forEach(ile => {
+                if(ile.checked)
+                { 
+                    procent=parseFloat(ile.value);
+                    wybor=procent;
+                    if(procent==0.8)
+                    { promocja=1; }
+                }
+            });
+            suma*=wybor;
+            document.getElementById("wynik").innerHTML="Łącznie zapłacisz: "+suma+" zł";
+            if(promocja==1)
+            {
+                document.getElementById("wynik").innerHTML+=" (zadziałało -20% !)";
+            }
+        }
+    </script>
+</body>
+</html>

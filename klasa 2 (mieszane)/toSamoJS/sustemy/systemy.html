@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Konwersator</title>
+</head>
+<body style="margin: 20px auto; text-align: center; font-family: Tahoma; font-size: 18px;">
+    Liczba:
+    <input type="text" id="liczba"> <br>
+    Liczba systemu, w którym zapisana jest ta liczba:
+    <input type="number" id="s1"> <br>
+    Liczba systemu, na który chcesz przekonwertować:
+    <input type="number" id="s2"> <br>
+    <input type="button" value="Konwertuj" onclick="przeliczanie()"><br> <br>
+    Przekonwertowana liczba:
+    <p id="wynik" style="font-size: 24px;"></p>
+    <script>
+        function przeliczanie()
+        {
+            let x=document.getElementById("liczba").value;
+            let s1=document.getElementById("s1").value;
+            let s2=document.getElementById("s2").value;
+            let z=x.split("");
+            let d=z.length;
+            let potega=1;
+            let koniec="";
+            let wynik=0;
+            if(s1>1 && s1<17 && s2>1 && s2<17)
+                {
+                    while(d>0)
+                    {
+                        cyfra=z[d-1];
+                            if(cyfra=='A')
+                            { cyfra=10 }
+                            else if(cyfra=='B')
+                            { cyfra=11 }
+                            else if(cyfra=='C')
+                            { cyfra=12 }
+                            else if(cyfra=='D')
+                            { cyfra=13 }
+                            else if(cyfra=='E')
+                            { cyfra=14 }
+                            else if(cyfra=='F')
+                            { cyfra=15 } 
+                        wynik=wynik+cyfra*potega;
+                        potega=potega*s1;
+                        d--;
+                    }
+                    while(wynik>0)
+                    {
+                        reszta=wynik%s2;
+                        wynik=parseInt(wynik/s2);
+                            if(reszta==10)
+                            { reszta='A' }
+                            else if(reszta==11)
+                            { reszta='B' }
+                            else if(reszta==12)
+                            { reszta='C' }
+                            else if(reszta==13)
+                            { reszta='D' }
+                            else if(reszta==14)
+                            { reszta='E' }
+                            else if(reszta==15)
+                            { reszta="F" }
+                        koniec=reszta+koniec;
+                    }
+                    document.getElementById("wynik").innerHTML="<b>"+koniec+"</b>";
+                }
+                else
+                { document.getElementById("wynik").innerHTML="Proszę podać liczby s1 oraz s2 z przedziału <2,16>"}
+        }
+    </script>
+</body>
+</html>

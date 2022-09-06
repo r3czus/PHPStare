@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data godzina</title>
+</head>
+<body>
+    
+  <p id="wynik"></p>
+
+     <script>
+         function zegar()
+         {
+             dzis = new Date(); // I
+             document.getElementById("wynik").innerHTML=dzis; // I
+
+             dzien=dzis.getDay(); // III
+             //console.log(dzien); // III
+
+             dni_tyg= new Array('niedziela','poniedizałek','wtorek','sroda','czwartek','piatek','sobota','niedziela'); // III
+             document.getElementById("wynik").innerHTML="Dzis jest "+dni_tyg[dzien];
+             
+             dzien_m= dzis.getDate();
+             console.log(dzien_m);
+             nr_m=dzis.getMonth();
+             console.log(nr_m);
+             miesiace=['styczeń','luty','marzec','kwiecień','m','czer','lip','sierp','wrz','pazdz','list','gr'];
+             rok=dzis.getFullYear();
+             document.getElementById("wynik").innerHTML+=" " +dzien_m + " " + miesiace[nr_m] + ' ' + rok + " roku";
+             setTimeout(zegar,1000); // I
+             godz=dzis.getHours();
+             
+         }
+         zegar(); // I
+         //setInterval(zegar,1000); // II
+     </script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+<!--
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+<body>
+    <p id="wynik"></p>
+    <script>
+        function zegar()
+        {
+            data= new Date();
+            document.getElementById("wynik").innerHTML=data;
+            dzien= data.getDay();
+            console.log(dzien)
+            dni_tyg= new Array("niedziela","poniedziałek","wtorek","środa","czwartek","piątek","sobota");
+            document.getElementById("wynik").innerHTML="Dziś jest "+dni_tyg[dzien];
+
+             dzien_m=data.getDate();
+             console.log(dzien_m);
+             nr_m=data.getMonth();
+             console.log(nr_m);
+             miesiace=['styczeń','luty','marzec','kwiecień','m','czer','lip','sierp','wrz','pazdz','list','gr'];
+             rok=data.getFullYear();
+             document.getElementById("wynik").innerHTML+=" " +dzien_m + " " + miesiace[nr_m] + ' ' + rok + " roku";
+             godz=data.getHours();
+             min=data.getMinutes();
+             sek=data.getSeconds()
+             if(sek<10)
+             {
+                document.getElementById("wynik").innerHTML+=" "+godz+":"+min+":0"+sek;
+             }
+             else{
+                document.getElementById("wynik").innerHTML+=" "+godz+":"+min+":"+sek;
+             }
+             if(min<10)
+             {
+                document.getElementById("wynik").innerHTML+=0;
+             }
+             setTimeout(zegar,1000)
+        }
+        zegar();
+    </script>
+</body>
+</html>
+-->

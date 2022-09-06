@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Malowanie (znowu...)</title>
+</head>
+<body>
+    Podaj m<sup>2</sup>: <input type="number" id="metry"> <br>
+    <input type="radio" name="kolor" value="kolor"> kolor <br>
+    <span id="ukryty">
+        Podaj RGB koloru: <br>
+        <input type="number" id="red">
+        <input type="number" id="green">
+        <input type="number" id="blue">
+        <input type="button" value="Wybrany kolor" id="pokaz">
+    </span> <br>
+    <input type="radio" name="kolor" value="bialy" checked> biały
+    <input type="button" value="Oblicz koszt" onclick="koszt()">
+    <p id="wynik"></p>
+    <script>
+        function koszt()
+        {
+            let m=document.getElementById("metry").value;
+            let wybor;
+            let kolor=document.getElementsByName("kolor");
+            for(let i=0;i<kolor.length;i++)
+            {
+                if(kolor[i].checked)
+                { 
+                    wybor=kolor[i].value; 
+                    break;
+                }
+            }
+            if(wybor=="kolor")
+            { 
+                let red=document.getElementById("red").value;
+                let green=document.getElementById("green").value;
+                let blue=document.getElementById("blue").value;
+                document.getElementById("pokaz").style.backgroundColor="RGB("+red+","+green+","+blue+")";
+                cena=m*10; 
+            }
+            else if(wybor=="bialy")
+            { 
+                document.getElementById("pokaz").style.backgroundColor="white";
+                cena=m*9; 
+            }
+
+
+            document.getElementById("wynik").innerHTML="Twoje malowanie będzie kosztować: "+cena+" zł";
+        }
+    </script>
+</body>
+</html>

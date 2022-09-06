@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Stoper</title>
+</head>
+<body>
+    <h3>Stoper</h3>
+    <p id="czas">00:00:00</p>
+    <input type="button" value="Start!" onclick="stoper()"> <br>
+    <input type="button" value="Stop" onclick="stop()">
+    <script>
+        var rownaSie;
+        var i=0;
+        var czas="";
+        function stoper()
+        {
+            console.log("cokolwiek");
+            /*if(i<60)
+            {
+                czas = "00:00:"+i;
+            }
+            else if(i<3600)
+            {
+                minuty=Math.floor(i/60);
+                sekundy=i-60*minuty;
+                czas = "00:"+minuty+":"+sekundy;
+            }
+            else
+            {
+                godziny=Math.floor(i/3600);
+                i=i-60*godziny;
+                minuty=Math.floor(i/60);
+                sekundy=i-60*minuty;
+                czas = godziny+":"+minuty+":"+sekundy;
+            }*/
+            let godziny=Math.floor(i/3600);
+            let minuty=Math.floor((i-godziny*3600)/60);
+            let sekundy=i%60;
+            czas=godziny+":"+minuty+":"+sekundy;
+            document.getElementById("czas").innerHTML=czas;
+            i++;
+            rownaSie=setTimeout(stoper,1);
+        }
+        function stop()
+        {
+            clearTimeout(rownaSie);
+        }
+    </script>
+</body>
+</html>

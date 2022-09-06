@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="UTF-8">
+    <title>SUStemy</title>
+</head>
+<body>
+    <h3>Podaj liczbę w systemie dziesiętnym: </h3>
+    <input type="text" id="liczba"> <br>
+    <h4>W jakim systemie to jest?</h4>
+    <input type="radio" name="wybor" value="2"> Dwójkowy <br>
+    <input type="radio" name="wybor" value="8"> Ósemkowy <br>
+    <input type="radio" name="wybor" value="10"checked> Dziesiątkowy <br>
+    <input type="radio" name="wybor" value="16"> Szesnastkowy <br> <br>
+    <input type="button" value="Przelicz" onclick="przelicz()">
+    <p id="wynik"></p>
+    <script>
+        function przelicz()
+        {
+            let wybor=document.getElementsByName("wybor");
+            let sustem;
+            wybor.forEach(element => {
+                if(element.checked)
+                { sustem=parseInt(element.value); }
+            });
+            
+        }
+    </script>
+</body>
+</html>
+
+<!--
+        <h3>Podaj liczbę w systemie dziesiętnym: </h3>
+    <input type="text" id="liczba"> <br>
+    <h4>W jakim systemie to jest?</h4>
+    <input type="radio" name="wybor" value="2"> Dwójkowy <br>
+    <input type="radio" name="wybor" value="8"> Ósemkowy <br>
+    <input type="radio" name="wybor" value="10"checked> Dziesiątkowy <br>
+    <input type="radio" name="wybor" value="16"> Szesnastkowy <br> <br>
+    <input type="button" value="Przelicz" onclick="przelicz()">
+    <p id="wynik"></p>
+    <script>
+        function przelicz()
+        {
+            let wybor=document.getElementsByName("wybor");
+            let sustem;
+            wybor.forEach(element => {
+                if(element.checked)
+                { sustem=parseInt(element.value); }
+            });
+            let liczba=document.getElementById("liczba").value;
+            let wynik=parseInt(liczba,sustem);
+            document.getElementById("wynik").innerHTML=wynik;
+        }
+    </script>
+-->

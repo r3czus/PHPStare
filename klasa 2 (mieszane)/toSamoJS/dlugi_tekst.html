@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Dziwny tekst...</title>
+</head>
+<body>
+    <textarea id="pierwszy" cols="40" rows="10"></textarea> <br>
+    <button onclick="zmien()">Przepisz</button> <br>
+    <form action="akcja.php" id="formek">
+        <textarea id="drugi" cols="40" rows="10"></textarea> <br>
+        <button onclick="upewnijsie()">Wyślij</button>
+    </form>
+    <script>
+        function zmien()
+        {
+            let x=document.getElementById("pierwszy").value;
+            x=x.trim();
+            x=x[0].toUpperCase() + x.substring(1);
+            if(x[x.length-1]!=".")
+            { x+="."; }
+            document.getElementById("drugi").innerHTML=x;
+        }
+        function upewnijsie()
+        {
+            if(confirm("Czy na pewno chcesz wysłać?"))
+            { document.getElementById("formek").submit(); }
+        }
+    </script>
+</body>
+</html>

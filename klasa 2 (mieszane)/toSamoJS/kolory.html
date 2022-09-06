@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>kolorowo...</title>
+</head>
+<body>
+    Kolor <input type="color" id="kolor"> <br>
+    Rozmiar czcionki <input type="number" id="rozmiar"> <br>
+    <select id="wybor">
+        <option value="line-through">Przekreślenie</option>
+        <option value="underline">Podkreślenie</option>
+        <option value="overline">Linia ponad tekstem</option>
+    </select>
+    <input type="button" value="Zastosuj" onclick="zastosuj()">
+    <p id="wynik">Dowolny tekst</p>
+    <script>
+        function zastosuj()
+        {
+            let kolor=document.getElementById("kolor").value;
+            document.getElementById("wynik").style.color=kolor;
+            let rozmiar=document.getElementById("rozmiar").value;
+            document.getElementById("wynik").style.fontSize=rozmiar+"px";
+            let wybor=document.getElementById("wybor").value;
+            document.getElementById("wynik").style.textDecoration=wybor;
+        }
+    </script>
+</body>
+</html>

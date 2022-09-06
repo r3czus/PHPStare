@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 2.</title>
+</head>
+<body>
+    <input type="checkbox" value="300" name="produkt"> dysk twardy - 300 zł <br>
+    <input type="checkbox" value="600" name="produkt"> monitor - 600 zł <br>
+    <input type="checkbox" value="1000" name="produkt"> karta graficzna - 1000 zł <br>
+    <input type="checkbox" value="1200" name="produkt"> procesor - 1200 zł <br>
+    <select id="dostawa">
+        <option value="0">odbiór osobisty 0 zł</option>
+        <option value="15">kurier 15 zł</option>
+        <option value="12">paczkomat 12 zł</option>
+    </select>
+    <input type="button" value="oblicz koszt" onclick="oblicz()">
+    <p id="wynik"></p>  
+    <script>
+        function oblicz()
+        {
+            let lista=document.getElementsByName("produkt");
+            let cenaP=0;
+            lista.forEach(produkt => {
+                if(produkt.checked)
+                { cenaP+=parseInt(produkt.value); }
+            });
+            if(cenaP>0)
+            {
+                document.getElementById("wynik").innerHTML="Kwota zakupów wynosi: "+cenaP+" zł<br>";
+                let cenaD=parseInt(document.getElementById("dostawa").value);
+                document.getElementById("wynik").innerHTML+="Koszt dostawy wynosi: "+cenaD+" zł<br>";
+                let cena=cenaP+cenaD;
+                document.getElementById("wynik").innerHTML+="<strong>Koszt łączny wynosi: "+cena+" zł</strong>";
+            }
+            else
+            { document.getElementById("wynik").innerHTML="<strong>Wybierz choć jeden produkt!</strong>"; }
+        }
+    </script>
+</body>
+</html>

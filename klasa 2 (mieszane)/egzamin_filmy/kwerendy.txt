@@ -1,0 +1,8 @@
+kwerenda 1
+INSERT INTO filmy (id, gatunki_id, rezyserzy_id, tytul, rok, ocena) VALUES (NULL, '5', '', 'Suburbicon', '2017', '5')
+kwerenda 2
+SELECT tytul, gatunki.nazwa FROM filmy JOIN gatunki ON filmy.gatunki_id=gatunki.id WHERE ocena=6
+kwerenda 3
+SELECT tytul, rok FROM filmy WHERE gatunki_id=3 AND ocena=5
+kwerenda 4
+CREATE TABLE filmoteka.aktorzy ( id INT NOT NULL , imie TEXT NOT NULL , nazwisko TEXT NOT NULL )

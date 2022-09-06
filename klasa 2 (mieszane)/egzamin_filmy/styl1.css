@@ -1,0 +1,47 @@
+html{
+    font-family: Helvetica;
+}
+#lewy{
+    background-color: navy;
+    color: white;
+    height: 700px;
+    width: 25%;
+    float: left;
+}
+#p1{
+    background-color: royalblue;
+    height: 100px;
+    text-align: center;
+    margin: 0 auto;
+    float: right;
+    width: 75%;
+}
+#p2{
+    background-color: steelblue;
+    height: 300px;
+    float: right;
+    width: 75%;
+}
+#p3{
+    background-color: royalblue;
+    height: 300px;
+    text-align: center;
+    float: right;
+    width: 75%;
+}
+footer{
+    background: steelblue;
+    text-align: center;
+    padding: 20px;
+    clear: both;
+}
+h1{
+    letter-spacing: 5px;
+}
+form{
+    margin: 30px;
+    line-height: 3;
+}
+form:hover{
+    background: deepskyblue;
+}

@@ -1,0 +1,8 @@
+Kwerenda 1
+SELECT nazwa, cena, opis FROM podzespoly WHERE typy_id=1
+Kwerenda 2
+SELECT id, nazwa FROM podzespoly WHERE dostepnosc=1 AND cena<400
+Kwerenda 3
+SELECT nazwa, kategoria FROM `podzespoly` JOIN typy ON podzespoly.typy_id=typy.id WHERE kategoria LIKE "procesor"
+Kwerenda 4
+ALTER TABLE typy ADD COLUMN opis text

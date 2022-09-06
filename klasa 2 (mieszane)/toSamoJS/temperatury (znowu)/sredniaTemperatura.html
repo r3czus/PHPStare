@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Podaj temperatury z trzech dni</h2>
+    Dzień 1. <input type="number" id="t1"> <br>
+    Dzień 2. <input type="number" id="t2"> <br>
+    Dzień 3. <input type="number" id="t3"> <br>
+    <h4>Wynik zaokrąglić:</h4>
+    <input type="radio" name="zao" value="1"> W górę <br>
+    <input type="radio" name="zao" value="-1"> W dół <br>
+    <input type="radio" name="zao" value="0" checked> Bez zaokrąglania <br>
+    <input type="button" value="Uśrednij" onclick="usrednij()">
+    <p id="wynik"></p>
+    <script>
+        function usrednij()
+        {
+            let t1=t2=t3=0
+            t1=parseFloat(document.getElementById("t1").value);
+            t2=parseFloat(document.getElementById("t2").value);
+            t3=parseFloat(document.getElementById("t3").value);
+            if (isNaN(t1) == true || isNaN(t2) == true || isNaN(t3) == true)
+            { document.getElementById("wynik").innerHTML="Podaj temperatury z TRZECH DNI :)"; }
+            else
+            {
+                let zao=document.getElementsByName("zao");
+            let z;
+            zao.forEach(element => {
+                if(element.checked)
+                { z=element.value; }
+            });
+            let sr=0;
+            sr=(t1+t2+t3)/3;
+            if(z>0)
+            { sr=Math.round(sr); }
+            else if(z<0)
+            { sr=Math.floor(sr); }
+            document.getElementById("wynik").innerHTML="Temperatura średnia z trzech dni wynosi: "+sr+" stopnia Celcjusza.";
+            }
+        }
+    </script>
+</body>
+</html>

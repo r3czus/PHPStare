@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Zadanie 1.</title>
+</head>
+<body>
+    <h3>oblicz koszt remontu</h3>
+    <input type="radio" name="podloga" value="100"> kafelkowanie 100 zł/m<sup>2</sup> <br>
+    <input type="radio" name="podloga" value="50"> panele podłogowe 50 zł/m<sup>2</sup> <br>
+    <input type="radio" name="podloga" value="30"> wykładzina 30 zł/m <br>
+    długość <input type="number" id="dlugosc"> <br>
+    szerokość <input type="number" id="szerokosc"> <br>
+    <input type="button" value="oblicz koszt" onclick="oblicz()">
+    <p id="wynik"></p>
+    <script>
+        function oblicz()
+        {
+            let podloga=document.getElementsByName("podloga");
+            let typ;
+            podloga.forEach(wybor => {
+                if(wybor.checked)
+                { typ=parseFloat(wybor.value); }
+            });
+            let dlugosc=document.getElementById("dlugosc").value;
+            let szerokosc=document.getElementById("szerokosc").value;
+            let cena=0;
+            if(typ=="30")
+            { cena=dlugosc*typ; }
+            else if(typ=="100" || typ=="50")
+            {
+                let pole=dlugosc*szerokosc;
+                cena=pole*typ;
+            }
+            document.getElementById("wynik").innerHTML="Koszt remontu podłogi wynosi "+cena+" zł";
+        }
+    </script>
+</body>
+</html>

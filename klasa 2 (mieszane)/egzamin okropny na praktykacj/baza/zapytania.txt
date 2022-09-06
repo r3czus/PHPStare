@@ -1,0 +1,11 @@
+Zapytanie 1
+INSERT INTO uczen (`id`,`nazwisko`,`imie`,`id_klasy`) VALUES (27, 'Wiktoria', 'Jasny', 1);
+
+Zapytanie 2
+SELECT wychowawca.imie, wychowawca.nazwisko FROM `uczen` JOIN wychowawca ON uczen.id_klasy=wychowawca.id_klasy WHERE uczen.nazwisko LIKE 'Markiewicz'
+
+Zapytanie 3
+CREATE USER 'Jan_Bogucki'@localhost IDENTIFIED BY 'jb_123';
+
+Zapytanie 4
+GRANT SELECT, INSERT, DELETE ON `szkola`.`uczen` TO 'Jan_Bogucki'@'localhost';

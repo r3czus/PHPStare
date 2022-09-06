@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Remonty mieszkań</title>
+    <link rel="stylesheet" type="text/css" href="remont.css">
+</head>
+<body>
+    <div class="menu">
+        <img src="logotyp.png" alt="logotyp"> 
+    </div>
+    <div class="menu">
+        <a href="index.html">O FIRMIE</a>
+    </div>
+    <div class="menu">
+        <a href="adres.html">ADRES</a>
+    </div>
+    <div class="menu">
+        <a href="policz.html">POLICZ</a>
+    </div>
+    <div class="menu">
+        <a href=" http://www.jakremontowac.pl/">LINKI</a>
+    </div>
+    <div id="glowny">
+        <h1>Kafelkowanie łazienki</h1>
+        <p>powierzchnia w m<sup>2</sup>: <input type="number" id="metry"></p>
+        <input type="radio" name="plytki" value="70"> Płytki 20 x 20 cm <br>
+        <input type="radio" name="plytki" value="80"> Płytki 25 x 12 cm <br> <br>
+        <input type="button" onclick="policz()" value="PRZELICZ" id="przycisk">
+    </div>
+    <p id="wynik"></p>
+    <script>
+        function policz()
+        {
+            metry=document.getElementById("metry").value;
+            plytki=document.getElementsByName("plytki");
+            cena=0;
+            plytki.forEach(element => {
+                if(element.checked)
+                {
+                    cena=parseFloat(element.value)*metry;
+                }               
+            });
+            document.getElementById("wynik").innerHTML="Koszt kafelkowania: "+cena+" zł";
+        }
+    </script>
+    <footer>
+        <p>Autor strony: 01234567890</p>
+    </footer>
+</body>
+</html>

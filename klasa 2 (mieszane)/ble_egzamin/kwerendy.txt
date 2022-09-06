@@ -1,0 +1,8 @@
+kwerenda 1
+SELECT id, tytul, tresc FROM ogloszenie WHERE kategoria=1
+kwerenda 2
+SELECT DISTINCT telefon FROM ogloszenie JOIN uzytkownik ON ogloszenie.uzytkownik_id=uzytkownik.id WHERE uzytkownik_id=1
+kwerenda 3
+CREATE USER 'moderator'@'localhost' IDENTIFIED BY 'qwerty'
+kwerenda 4
+GRANT SELECT, DELETE ON ogloszenia.ogloszenie TO 'moderator'@'localhost'

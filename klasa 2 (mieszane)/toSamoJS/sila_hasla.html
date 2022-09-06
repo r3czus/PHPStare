@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Miernik jakości hasła</title>
+</head>
+<body>
+    <p>Twoje hasło: <input type="text" id="haslo"><input type="button" value="Sprawdź" id="buton"></p>
+    <p id="wynik"></p>
+    <script>
+        document.getElementById("buton").addEventListener("click",sprawdz);
+        function sprawdz()
+        {
+            let pass=document.getElementById("haslo").value;
+            if(pass=="")
+            {
+                document.getElementById("wynik").innerHTML="Wpisz hasło";
+                document.getElementById("wynik").style.color="red";
+                return;
+            }
+            let wyr_reg=new RegExp("[0-9]{1,}");
+            let wyr_regg=/[0-9]{1,}/; //To to samo, ale 2 różne metody
+            if(wyr_reg.test(pass))
+            {
+                if(pass.length>=7)
+                { 
+                    document.getElementById("wynik").innerHTML="Hasło jest dobre"; 
+                    document.getElementById("wynik").style.color="green";
+                    return;
+                }
+                else if(pass.length>4)
+                {
+                    document.getElementById("wynik").innerHTML="Hasło jest średnie"; 
+                    document.getElementById("wynik").style.color="blue";
+                }
+
+            }
+            else
+            { 
+                document.getElementById("wynik").innerHTML="Hasło jest słabe";
+                document.getElementById("wynik").style.color="yellow";  
+            }
+        }
+    </script>
+</body>
+</html>

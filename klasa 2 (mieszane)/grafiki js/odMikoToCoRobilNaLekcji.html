@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="1">
+        <img src="1.jpg" id="obraz_1" alt="kwiatek">
+    </div>
+    <script>
+        let obrazki= new Array('1.jpg','2.jpg','3.jpg');
+        let i=0;
+        function zmiana(){
+            document.getElementById("obraz_1").src=obrazki[i];
+            if(obrazki.length-1>i)
+            {
+            i++;
+            console.log(i);
+            }
+            else{
+                i=0;
+            }
+            setTimeout(zmiana,1000);
+        }
+        zmiana();
+    </script>
+</body>
+</html>

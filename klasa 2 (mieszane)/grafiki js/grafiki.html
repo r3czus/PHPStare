@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Something</title>
+</head>
+<body>
+    <div id="1div">
+        <img src="xdjdx1.jpg" id="jeden" alt="jeden" height="300px">
+    </div>
+    <div id="div2">
+        <img src="1.jpg" alt="1" id="1" height="100px" onmouseover="zmien(this)">
+        <img src="2.jpg" alt="2" id="2" height="100px" onmouseover="zmien(this)">
+        <img src="3.jpg" alt="3" id="3" height="100px" onmouseover="zmien(this)">
+        <img src="4.jpg" alt="4" id="4" height="100px" onmouseover="zmien(this)">
+    </div>
+    <script>
+        function zmien(zmienna)
+        {
+            //document.getElementById("jeden").src=zmienna.src;
+            let text=zmienna.src;
+            text=text.slice(0,-4);
+            text+="odbicie.jpg";
+            console.log(text);
+            document.getElementById("jeden").src=text;
+        }
+    </script>
+</body>
+</html>

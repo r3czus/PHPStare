@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Do końca lekcji</title>
+</head>
+<body>
+    <h2>Do końca lekcji pozostało:</h2>
+    <p id="wynik">
+        <script>
+            function doKonca()
+            {
+                let data=new Date();
+                let koniec=new Date('2021','2','9','11','0','0');
+                //console.log(koniec);
+                let ile=koniec-data;
+                //console.log(ile);
+                let godziny=parseInt(ile/1000/60/60);
+                //console.log(godziny);
+                let minuty=parseInt(ile/1000/60)-godziny*60;
+                //console.log(minuty);
+                let sekundy=parseInt(ile/1000)%60;
+                //console.log(sekundy);
+                document.getElementById("wynik").innerHTML=godziny+" godzin<br>"+minuty+" minut<br>"+sekundy+" sekund";
+            }
+            setInterval(doKonca,1000);
+        </script>
+    </p>
+</body>
+</html>

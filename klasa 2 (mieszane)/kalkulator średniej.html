@@ -1,0 +1,103 @@
+<!-- https://srednia.com/wazona -->
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Kalkulator średniej ocen</title>
+</head>
+<body>
+    <span id="poczatek">
+        <h2>Wpisz jakich wag chcesz użyć:</h2>
+        <input type="text" id="jakie"> <br> <br>
+        <input type="button" value="Utwórz pola" onclick="utworz_inputy()"> <hr>
+    </span>
+    <h3 id="hah3" hidden>Wpisz oceny z odpowiednimi wagami w odpowienie miejsca:</h3>
+    <p id="inputy"></p>
+    <input type="button" id="policzacz" value="Policz średnią" onclick="policz()" hidden>
+    <p id="wynik"></p>
+    <script>
+        function utworz_inputy()
+        {
+            let inp=document.getElementById("jakie").value;
+            let elemencik;
+            inp=doTablicy(inp);
+            if(inp[0] == true)
+            {
+                let uniq = inp.filter((item, index, array) => { //Internet
+                return array.indexOf(item) === index });
+                uniq.sort(function(a, b){return a-b}); //Internet
+                atrybuty();
+                for(let i=0;i<uniq.length;i++)
+                {
+                    elemencik=uniq[i];
+                    nowy_tekscik(elemencik);
+                    nowy_input(elemencik);
+                }
+            }
+        }
+        function policz()
+        {
+            let wagi=document.getElementsByName("wagi");
+            let licznik=mianownik=suma=srednia=pars=0; 
+            for(let i=0;i<wagi.length;i++)
+            {
+                waga=wagi[i].id;
+                w=document.getElementById(waga).value;
+                w=doTablicy(w);
+                suma=w.reduce(function(a, b){ return a + b; }, 0); //Internet
+                licznik+=suma*waga;
+                mianownik+=w.length*waga;
+            }
+            srednia=licznik/mianownik;
+            srednia=Math.round(srednia*100)/100;
+            if(isNaN(srednia) == false)
+            { document.getElementById("wynik").innerHTML="Średnia ważona wynosi: <strong>"+srednia+"</strong>"; }
+
+        }
+        function doTablicy(w)
+        {
+            w = w.replace(/\s/g, '');  //Internet
+            t=w.split(',');
+            t = t.filter(function (element) { return element != ""; });  //Internet
+            for(let i=0;i<t.length;i++)
+            { t[i]=parseFloat(t[i]); }        
+            return t;
+        }
+        function nowy_input(i)
+        {
+            let czy=document.getElementById(i);
+            if(!isNaN(czy))
+            {
+                nowy=document.createElement("input");
+                nowy.setAttribute("type","text");
+                nowy.setAttribute("id",i);
+                nowy.setAttribute("placeholder","5, 4.75");
+                nowy.setAttribute("name","wagi");
+                gdzie=document.getElementById("inputy");
+                gdzie.appendChild(nowy);
+                gdzie.innerHTML+="<br>";
+            }
+        }
+        function nowy_tekscik(i)
+        {
+            let czy=document.getElementById(i);
+            if(!isNaN(czy))
+            {
+                nowy=document.createElement("h4");
+                nowy.textContent="Waga "+i;
+                gdzie=document.getElementById("inputy");
+                gdzie.appendChild(nowy);
+            }
+        }
+        function atrybuty()
+        {
+            hah3=document.getElementById("hah3");
+            policzacz=document.getElementById("policzacz")
+            poczatek=document.getElementById("poczatek");
+            hah3.removeAttribute("hidden"); 
+            policzacz.removeAttribute("hidden"); 
+            poczatek.setAttribute("hidden",true);
+        }
+    </script>
+</body>
+</html>

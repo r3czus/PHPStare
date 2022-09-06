@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Czasy transportu</title>
+</head>
+<body>
+    <h2>Wybierz środek transportu:</h2>
+    <form id="form">
+        <input type="radio" name="sposob" value="5"> pieszo
+        <input type="radio" name="sposob" value="15"> rowerem
+        <input type="radio" name="sposob" value="30"> autobusem
+        <input type="radio" name="sposob" value="45"> samochodem <br>
+        <input type="number" step="0.01" placeholder="podaj km" id="km"> <br>
+        <input type="button" onclick="czas()" value="Oblicz czas">
+    </form>
+    <p id="wynik"></p>
+    <script>
+        function czas()
+        {
+            let spos=document.getElementsByName("sposob");
+            spos.forEach(element => {
+                if(element.checked)
+                { sposob=element.value; }
+            });
+            let km=document.getElementById("km").value;
+            let czas=km/sposob;
+            czas = czas.toFixed(2)
+            document.getElementById("wynik").innerHTML="Czas wyniesie "+czas+" godziny";
+        }
+    </script>
+</body>
+</html>

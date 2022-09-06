@@ -1,0 +1,43 @@
+<body>
+    <form id="formularz" action="gdzies.php">
+        Podaj imię<input type="text" name="imie"><br>
+        Podaj wiek<input type="number" name="wiek"><br>
+        Podaj płeć<br>
+        <input type="radio" name="plec" value="baba">Baba<br>
+        <input type="radio" name="plec" value="chlop">Chłop<br>
+        <input type="reset" value="Reset">
+        <input type="button" onclick="zeruj()" value="Zeruj">
+        <input type="button" onclick="pobierz()" value="Przepisz formularz">
+        <input type="submit" value="Wyślij">
+        <input type="button" onclick="sprawdz()" value="sprawdź wiek">
+        <p id="wynik"></p>
+    </form>
+    <script>
+        function zeruj()
+        { document.getElementById("formularz").reset(); }
+        function pobierz()
+        { 
+            let moj_form=document.getElementById("formularz");
+            let imie=moj_form['imie'].value;
+            console.log(imie);
+            let tez_imie=moj_form[0].value;
+            console.log(imie);
+            let plec=moj_form['plec'].value;
+            console.log(plec);
+        }
+        function sprawdz()
+        {
+            let moj_form=document.getElementById("formularz");
+            let wiek=parseInt(moj_form['wiek'].value);
+            console.log(wiek);
+            if(wiek<0 || wiek>105)
+            { 
+                alert("biblethumb");
+                return 0;
+            }
+            else
+            { moj_form.submit(); }
+        }
+        
+    </script>
+</body>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Podwieczorek UwU</title>
+</head>
+<body>
+    <form id="formulasz">
+        <select id="napuj">
+            <option value="kawa">Kawa</option>
+            <option value="herbata">Herbata</option>
+        </select> <br>
+        <input type="checkbox" id="mleko"> z mlekiem <br>
+        <input type="checkbox" id="cukier"> z cukrem <br>
+        <input type="checkbox" id="cytryna"> z cytryną <br>
+        <input type="button" value="Oblicz cenę" onclick="oblicz()">
+    </form>
+    <p id="wynik"></p>
+    <script>
+        function oblicz()
+        {
+            let cena=0;
+            let cos=0;
+            let dodatek;
+            let napuj=document.getElementById("napuj").value;
+            if(napuj=="kawa")
+            { cena+=10; }
+            else if(napuj=="herbata")
+            { cena+=8; }
+            document.getElementById("wynik").innerHTML="Zamówiłeś/aś napój "+napuj+" z ";
+            if(document.getElementById("mleko").checked)
+            {
+                cena++; 
+                cos++;
+                document.getElementById("wynik").innerHTML+="mlekiem, ";
+            }
+            if(document.getElementById("cukier").checked)
+            {
+                cena++; 
+                cos++;
+                document.getElementById("wynik").innerHTML+="cukrem, ";
+            }
+            if(document.getElementById("cytryna").checked)
+            {
+                cena++;
+                cos++; 
+                document.getElementById("wynik").innerHTML+="cytryną ";
+            }
+            if(cos==0)
+            {  document.getElementById("wynik").innerHTML+="niczym dodatkowym :/ "; }
+            document.getElementById("wynik").innerHTML+="<br>Łączny koszt wynosi: "+cena+" zł";
+        }
+    </script>
+</body>
+</html>

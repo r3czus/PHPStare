@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Ciągi arytmetyczne i geometryczne</title>
+</head>
+<body>
+    Podaj pierwszy wyraz ciągu: <input type="text" id="pierwszy"> <br>
+    Podaj też drugi wyraz ciągu: <input type="text" id="drugi"> <br>
+    Ciąg geometryczny <input type="radio" name="typ" value="geometryczny"> <br>
+    Ciąg arytmetyczny <input type="radio" name="typ" value="arytmetyczny"> <br>
+    <input type="button" value="Wypisz ciąg" onclick="ciag()"> <br>
+    <p id="wynik"></p>
+    <script>
+        function ciag()
+        {
+            let w1=parseFloat(document.getElementById("pierwszy").value);
+            let w2=parseFloat(document.getElementById("drugi").value);
+            let radio=document.getElementsByName("typ");
+            for(let i=0;i<radio.length;i++)
+            {
+                if(radio[i].checked)
+                {
+                    document.getElementById("wynik").innerHTML="Ciąg "+radio[i].value+".: "+w1+", "+w2+", ";
+                    if(radio[i].value=="geo")
+                    { arytmetyczny(w1,w2); }
+                    else if(radio[i].value="art")
+                    { geometryczny(w1,w2); }
+ 
+                }
+            }
+        }
+        function arytmetyczny(a1,a2)
+        {
+            let r=a2-a1;
+            for(let i=0;i<8;i++)
+            { 
+                a2+=r; 
+                document.getElementById("wynik").innerHTML+=a2+", ";
+            }
+        }
+        function geometryczny(a1,a2)
+        {
+            let q=a2/a1;
+            for(let i=0;i<8;i++)
+            { 
+                a2*=q; 
+                document.getElementById("wynik").innerHTML+=a2+", ";
+            }
+        }
+    </script>
+</body>
+</html>

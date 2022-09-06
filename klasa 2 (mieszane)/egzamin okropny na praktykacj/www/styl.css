@@ -1,0 +1,42 @@
+a{
+    color: brown;
+}
+#baner,#stopka{
+    background-color: #ffb31c;
+    text-align: center;
+}
+#prawy{
+    text-align: right;
+}
+html{
+    font-family: Verdana;
+}
+#lewy,#prawy{
+    background-color: #ffb31c;
+    width: 20%;
+    height: 480px;
+    float: left;
+}
+#srodkowy{
+    background-color: #ffcb71;
+    width: 60%;
+    height: 480px;
+    float: left;
+    overflow: scroll;
+}
+#baner{
+    height: 60px;
+}
+#stopka{
+    height: 30px;
+    clear: both;
+}
+#lewy,#prawy li{
+    list-style: square;
+}
+#prawy li{
+    list-style-position: inside;
+}
+td{
+    border: 1px solid black;
+}

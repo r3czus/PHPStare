@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Dom Weselny</title>
+</head>
+<body>
+    <h3>Ile będzie kosztowało moje wesele?</h3>
+    <p>Podaj liczbę gości:</p> 
+    <input type="number" id="liczba"> <br>
+    <input type="checkbox" id="wesele"> Wesele z poprawinami <br>
+    <input type="button" value="Oblicz koszt wesela" onclick="oblicz()">
+    <p id="wynik"></p>
+    <script>
+        function oblicz()
+        {
+            let ile=document.getElementById('liczba').value;
+            let check=document.getElementById('wesele');
+            let cena=ile*100;
+            if(check.checked)
+            { cena*=1.3; }
+            document.getElementById('wynik').innerHTML="Twoje wesele będzie kosztować "+cena+" pln";
+        }
+    </script>
+</body>
+</html>

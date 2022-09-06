@@ -1,0 +1,36 @@
+html{
+    font-family: Garamond;
+}
+.gora{    
+    background-color: #790DB5;
+    color: orange;
+    height: 200px;
+    width: 25%;
+    text-align: center;
+    float: left;
+}
+.main{
+    background-color: #FFE6A3;
+    height: 500px;
+    width: 50%;
+    float: left;
+}
+#stopka{
+    background-color: #790DB5; 
+    color: orange;
+    text-align: center;
+    padding: 30px;
+    clear: both;
+}
+#autor{
+    font-size: 150%;
+}
+form{
+    padding-top: 60px;
+}
+a:link{
+    color: yellow;   
+}
+a:visited{
+    color: orange;
+}

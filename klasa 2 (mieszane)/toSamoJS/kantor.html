@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Kantor</title>
+</head>
+<body>
+    <h1>Złotówki na wybraną walutę</h1>
+    Podaj w złotówkach: <input type="number" id="pln" placeholder="zł"> <br>
+    <input type="radio" name="radyjo" value="3.5"> Dolar USA <br>
+    <input type="radio" name="radyjo" value="4.5"> Euro <br>
+    <input type="radio" name="radyjo" value="4.1"> Frank szwajcarski <br>
+    <input type="button" value="Przelicz" onclick="przelicz()">
+    <p id="wynik"></p>
+    <script>
+        function przelicz()
+        {
+            let pln=parseFloat(document.getElementById("pln").value);
+            let waluty=document.getElementsByName("radyjo");
+            let waluta=1;
+            waluty.forEach(pieniazek => {
+                if(pieniazek.checked)
+                { waluta=parseFloat(pieniazek.value); }
+            });
+            let kwota;
+            kwota=pln/waluta;
+            kwota=kwota.toFixed(2);
+            document.getElementById("wynik").innerHTML="Po przeliczeniu wyjdzie: "+kwota;
+        }
+    </script>
+</body>
+</html>

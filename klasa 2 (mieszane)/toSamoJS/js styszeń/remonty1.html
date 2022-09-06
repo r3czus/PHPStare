@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <h1>Malowanie pokoju: 8 zł za m<sup>2</sup></h1>
+    <p>Wymiary pokoju w metrach:
+        <input type="number" id="dlugosc">
+        <input type="number" id="szerokosc">
+    </p>
+    <input type="button" value="Oblicz koszt" onclick="oblicz()">
+    <p id="wynik"></p>
+    <script>
+        function oblicz()
+        {
+            let x=document.getElementById("dlugosc").value;
+            let y=document.getElementById('szerokosc').value;
+            let obw=2*x+2*y;
+            let pow=Math.round(obw*2.7 *100);
+            pow/=100;
+            document.getElementById("wynik").innerHTML="Całkowita powierzchnia pomieszczenia: "+pow+"<br>";
+            let cena=pow*8;
+            cena=cena.toFixed(2);   
+            document.getElementById("wynik").innerHTML+="Koszt malowania: "+cena+" zł";
+        }
+    </script>
+</body>
+</html>

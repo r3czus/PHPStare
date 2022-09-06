@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Kafyju na byfyju</title>
+</head>
+<body>
+    <span>Podaj numer kawy</span> <br>
+    <input type="number" id="numer"> <br>
+    <span>Podaj wagę w dekagramach</span> <br>
+    <input type="number" id="waga"> <br>
+    <input type="button" value="Zamów" id="zamow"> <br>
+    <p id="wynik"></p>
+    <script>
+        document.getElementById('zamow').addEventListener("click",zamow);
+        function zamow()
+        {
+            let numer=document.getElementById('numer').value;
+            let waga=document.getElementById('waga').value;
+            let cena=0;
+            switch(numer)
+            {
+                case '1':
+                    cena=5;
+                break;
+                case '2':
+                    cena=7;    
+                break;
+                case '3':
+                    cena=6;
+                break;
+            }
+            let koszt=cena*waga;
+            document.getElementById("wynik").innerHTML="Koszt zamówienia wynosi: "+koszt+" zł";
+        }
+    </script>
+</body>
+</html>

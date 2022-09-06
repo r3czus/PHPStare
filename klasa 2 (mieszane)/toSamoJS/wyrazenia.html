@@ -1,0 +1,39 @@
+<form id='f'>
+    Podaj kod pocztowy <input type="text" name="kod">
+    Podaj imię <input type="text" name="imie">
+    Podaj email <input type="text" name="email">
+    <input type="button" onClick="spr1()">
+</form>
+<p id="kom1"></p>
+<script>
+function spr1()
+{
+    let wyr_reg=/^\d{2}-\d{3}$/; // d = digit
+    let wyr_reg2=new RegExp(/^[A-ZŻŹŚŁ]{1}[a-zżźćńłśąęó]{1,80}$/);
+    let wyr_reg3=new RegExp(/^[a-z0-9._-]{4,30}@[a-z0-9._-]{2,40}\.[a-z]{2,3}$/);
+    formularz=document.getElementById("f");
+    if(wyr_reg.test(formularz['kod'].value))
+    {
+        if(wyr_reg2.test(formularz['imie'].value))
+        {
+            if(wyr_reg3.test(formularz['email'].value))
+            {
+                console.log('ok');
+            }
+            else
+            {
+                alert("email nie tak!")
+            }
+        }
+        else
+        {
+            alert("imie nie tak!");
+        }
+        
+    }
+    else
+    {
+        alert("kod pocztowy nie tak!");
+    }
+}
+</script>

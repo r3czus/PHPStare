@@ -1,0 +1,8 @@
+kwerenda 1
+SELECT nazwa, wystepowanie FROM `ryby` WHERE styl_zycia=1
+kwerenda 2
+SELECT Ryby_id, wymiar_ochronny FROM `okres_ochronny` WHERE `wymiar_ochronny`<50
+kwerenda 3
+SELECT nazwa, akwen, wojewodztwo FROM `lowisko` JOIN ryby ON lowisko.Ryby_id=ryby.id WHERE rodzaj=2
+kwerenda 4
+ALTER TABLE ryby ADD dobowy_limit int

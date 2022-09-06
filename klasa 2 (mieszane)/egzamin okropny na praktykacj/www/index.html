@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Szkoła ponadgimnazjalna</title>
+    <link rel="stylesheet" type="text/css" href="styl.css">
+</head>
+<body>
+    <div id="baner">
+        <h2>Projekt strony internetowej szkoły ponadgimnazjalnej</h2>
+    </div>
+    <div id="lewy">
+        <h3>Do pobrania</h3>
+        <ul>
+            <li><a href="../baza/zapytania.txt">zapytania SQL</a></li>
+            <li><a href="../baza/szkola_nowa.sql">baza danych</a></li>
+        </ul>
+    </div>
+    <div id="srodkowy">
+        <table>
+            <tr> <td>Treść zapytania</td> <td width="405px">Zrzut ekranu</td> </tr>
+            <tr> <td>INSERT INTO uczen (`id`,`nazwisko`,`imie`,`id_klasy`) VALUES (27, 'Wiktoria', 'Jasny', 1);</td> <td><img src="kwerenda1.jpg" alt="kwerenda1.jpg"></td> </tr>
+            <tr> <td>SELECT wychowawca.imie, wychowawca.nazwisko FROM `uczen` JOIN wychowawca ON uczen.id_klasy=wychowawca.id_klasy WHERE uczen.nazwisko LIKE 'Markiewicz'</td> <td><img src="kwerenda2.jpg" alt="kwerenda2.jpg"></td> </tr>
+            <tr> <td>CREATE USER 'Jan_Bogucki'@localhost IDENTIFIED BY 'jb_123';</td> <td><img src="nowy_uzytkownik.jpg" alt="nowy_uzytkownik.jpg"></td> </tr>
+            <tr> <td>GRANT SELECT, INSERT, DELETE ON `szkola`.`uczen` TO 'Jan_Bogucki'@'localhost';</td> <td><img src="uprawnienia.jpg" alt="uprawnienia.jpg"></td> </tr>
+        </table>
+    </div>
+    <div id="prawy">
+        <h4>Obliczanie średniej ocen</h4>
+        <ul>
+            <li>Polak <input type="text" id="Polak"></li>
+            <li>Nowak <input type="text" id="Nowak"></li>
+            <li>Rysik <input type="text" id="Rysik"></li>
+        </ul>
+        <input type="button" value="oblicz" onclick="oblicz()">
+        <h4>Średnia ocen:</h4>
+        <p id="wynik"></p>
+        <script>
+            function oblicz()
+            {
+                let Polak=document.getElementById("Polak").value;
+                let Nowak=document.getElementById("Nowak").value;
+                let Rysik=document.getElementById("Rysik").value;
+                if((isNaN(Polak) || Polak=='') || (isNaN(Nowak) || Nowak=='') || (isNaN(Rysik) || Rysik==''))
+                {
+                    let nowe_okno=window.open();
+                    nowe_okno.document.write("wpisz poprawne dane");
+                }
+                else
+                {
+                    Polak=parseInt(Polak);    
+                    Nowak=parseInt(Nowak);   
+                    Rysik=parseInt(Rysik);  
+                    let srednia=(Polak+Nowak+Rysik)/3;
+                    document.getElementById("wynik").innerHTML="Średnia ocen<br>"+srednia;
+                }
+
+            }
+        </script>
+    </div>
+    <div id="stopka">
+        <h5>autor strony: 01234567890</h5>
+    </div>
+</body>
+</html>

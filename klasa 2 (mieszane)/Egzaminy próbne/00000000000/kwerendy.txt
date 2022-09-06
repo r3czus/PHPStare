@@ -1,0 +1,11 @@
+Kwerenda 1.
+SELECT nazwa,potoczna FROM grzyby WHERE jadalny=1
+
+Kwerenda 2.
+SELECT grzyby.nazwa,potoczna,rodzina.nazwa FROM grzyby JOIN rodzina ON grzyby.rodzina_id=rodzina.id WHERE potrawy_id=1
+
+Kwerenda 3.
+SELECT nazwa_pliku,potoczna FROM grzyby
+
+Kwerenda 4.
+ALTER TABLE rodzina ADD opis TEXT NOT NULL AFTER nazwa

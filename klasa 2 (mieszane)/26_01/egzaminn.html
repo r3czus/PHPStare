@@ -1,0 +1,37 @@
+<body>
+    <hr><h2>Kontakt</h2><hr>
+    <form id="formek">
+        <table>
+            <tr> <td>Imię:</td> <td><input type="text" name="imie"></td> </tr>
+            <tr> <td>Nazwisko:</td> <td><input type="text" name="nazwisko"></td> </tr>
+            <tr> <td>E-mail:</td> <td><input type="text" name="email"></td> </tr>
+            <tr> <td>Usługa:</td> <td><textarea name="usluga"></textarea></td> </tr>
+            <tr> <td></td> <td><input type="checkbox" name="regulamin">Zapoznałam/em się z regulaminem</td> </tr>
+            <tr> <td></td> <td><input type="reset" value="Resetuj"><input type="button" value="Prześlij" id="przeslij"></td> </tr>
+        </table> 
+    </form> 
+    <p id="akapit"></p>
+    <script>
+        let formek=document.getElementById("formek");
+        document.getElementById('przeslij').addEventListener('click',alercik);
+        function alercik()
+        { 
+            imie=formek['imie'].value;
+            nazwisko=formek['nazwisko'].value;
+            email=formek['email'].value;
+            regulamin=formek['regulamin'];
+            usluga=formek['usluga'].value;
+            if(regulamin.checked)
+            {
+                document.getElementById('akapit').style.color='black';
+                document.getElementById('akapit').innerHTML=imie.toUpperCase()+" "+nazwisko.toUpperCase()+"<br>"+"Treść Twojej sprawy:"+usluga+"<br>Na podany e-mail zostanie wysłana oferta.";
+            }
+            else
+            {
+                document.getElementById('akapit').style.color='red';
+                document.getElementById('akapit').innerHTML="Musisz zapoznać się z regulaminem";
+            }
+        }
+
+    </script>
+</body>

@@ -1,0 +1,39 @@
+<body>
+    <h3>Formularz kontaktowy</h3>
+    <form id="form">
+        <table>
+            <tr> <td>Imię:</td> <td><input type="text" name="imie"></td> </tr>
+            <tr> <td>Nazwisko:</td> <td><input type="text" name="nazwisko"></td> </tr>
+            <tr> <td>E-mail:</td> <td><input type="text" name="email"></td> </tr>
+            <tr> <td>Usługa:</td> 
+                 <td>
+                    <select name="usluga">
+                        <option>Naprawa komputera</option>
+                        <option>Odzyskiwanie danych</option>
+                        <option>Problemy z oprogramowaniem</option>
+                        <option>Konfiguracja sieci LAN</option>
+                        <option>Inne</option>
+                    </select>
+                 </td> 
+            </tr>
+            <tr> <td></td> <td><input type="checkbox" name="kopia_wiadomosc_cokolwiek" checked>Wyślij kopię wiadomości</td> </tr>
+            <tr> <td></td> <td><input type="reset" value="Resetuj"><input type="button" value="Prześlij" onclick="przeslij()"></td> </tr>
+        </table>
+    </form>
+    <p id="wynik"></p>
+    <script>
+        function przeslij()
+        {
+            formek=document.getElementById("form");
+            let imie=formek['imie'].value;
+            let nazwisko=formek['nazwisko'].value;
+            let email=formek['email'].value;
+            let usluga=formek['usluga'].value;
+            let kwc=formek['kopia_wiadomosc_cokolwiek'];
+            document.getElementById("wynik").innerHTML=imie+" "+nazwisko+"<br>";
+            if(formek['kopia_wiadomosc_cokolwiek'].checked)
+            { document.getElementById('wynik').innerHTML+=email.toLowerCase()+"<br>"; }
+            document.getElementById("wynik").innerHTML+="usluga: "+usluga;
+        }
+    </script>
+</body>

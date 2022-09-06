@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>domekxd</title>
+</head>
+<body>
+    <h1>Kalkulator ceny mieszkania</h1>
+    Podaj metraż mieszkania w metrach kwadratowych
+    <input type="number" id="metry"> <br>
+    Liczba pokoi z zamontowanym okablowaniem sieciowym
+    <input type="number" id="pokoje"><br>
+    <input type="checkbox" id="kafelki"> Kafelki w łazience?<br>
+    <input type="button" value="Oblicz" id="oblicz">
+    <p id="wynik"></p>
+    
+    <script>
+        document.getElementById("oblicz").addEventListener("click",oblicz);
+        function oblicz()
+        {
+            let metry=parseInt(document.getElementById("metry").value);
+            let pokoje=parseInt(document.getElementById("pokoje").value);
+            let wartosc=metry*4000+pokoje*1000;
+            if(document.getElementById('kafelki').checked)
+            { wartosc+=2000; }
+            document.getElementById("wynik").innerHTML="Koszt mieszkania: "+wartosc+" zł";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+<body>
+    <span id="tekst">napisz cokolwiek</span>
+    <input type="button" id="przycisk" value="czarny">
+    <script>
+        document.getElementById('tekst').addEventListener("mouseover", zmiana);
+        function zmiana()
+        { document.getElementById('tekst').style.color="red"; }
+        document.getElementById('przycisk').addEventListener("click", zmiana2);
+        function zmiana2()
+        { document.getElementById('tekst').style.color="black"; }
+    </script>
+</body>

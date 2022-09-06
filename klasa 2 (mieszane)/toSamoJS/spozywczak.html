@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Spożywczak</title>
+</head>
+<body>
+    <h1>Owocki UwU</h1>
+    <input type="checkbox" value="3" name="owoc" onclick="rozwijana('s0')"> 3 zł - Jabłka <span id="s0"></span> <br>
+    <input type="checkbox" value="2" name="owoc" onclick="rozwijana('s1')"> 2 zł - Pomarańcze<span id="s1"></span> <br>
+    <input type="checkbox" value="5" name="owoc" onclick="rozwijana('s2')"> 5 zł - Banany<span id="s2"></span> <br>
+    <input type="button" value="Oblicz" onclick="licz()">
+    <p id="wynik"></p>
+    <script>
+        function licz()
+        {
+            let owoce=document.getElementsByName("owoc");
+            document.getElementById("wynik").innerHTML="W twoim koszyku masz: ";
+            let suma=0, cena=0, ilosc=1;
+            for(let i=0;i<owoce.length;i++)
+            {
+                if(owoce[i].checked)
+                {
+                    ilosc=document.getElementById("");
+                    cena=parseInt(owoce[i].value);
+                    suma+=cena;
+                }
+            }
+            document.getElementById("wynik").innerHTML="Suma: "+suma+" zł";
+        }
+        
+        function rozwijana(span)
+        {
+            select=span+'sel';
+            document.getElementById(span).innerHTML="<select id="+select+">";
+            for(let i=1;i<=5;i++)
+            {
+                document.getElementById(select).innerHTML+="<option value="+i+">"+i+"</option>";
+            }
+            document.getElementById(span).innerHTML+="</select>";
+        }
+    </script>
+</body>
+</html>

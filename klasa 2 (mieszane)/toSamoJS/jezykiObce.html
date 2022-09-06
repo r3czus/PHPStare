@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    Jakie znasz języki obce?
+    <form id="form">
+        <input type="checkbox" value="angielski" name="a"> angielski 
+        <select name="b">
+            <option value="1">
+                Początkujący
+            </option>
+            <option value="2">
+                Średniozaawansowany
+            </option>
+            <option value="3">
+                Zaawansowany
+            </option>
+        </select>
+        <br>
+        <input type="checkbox" value="francuski" name="a"> francuski 
+        <select name="b">
+            <option value="1">
+                Początkujący
+            </option>
+            <option value="2">
+                Średniozaawansowany
+            </option>
+            <option value="3">
+                Zaawansowany
+            </option>
+        </select>
+        <br>
+        <input type="checkbox" value="niemiecki" name="a"> niemiecki 
+        <select name="b">
+            <option value="1">
+                Początkujący
+            </option>
+            <option value="2">
+                Średniozaawansowany
+            </option>
+            <option value="3">
+                Zaawansowany
+            </option>
+        </select>
+        <br>
+        <input type="checkbox" value="hiszpanski" name="a"> hiszpański 
+        <select name="b">
+            <option value="1">
+                Początkujący
+            </option>
+            <option value="2">
+                Średniozaawansowany
+            </option>
+            <option value="3">
+                Zaawansowany
+            </option>
+        </select>
+        <br>
+        inne <input type="text" name="inne">
+        <select name="b">
+            <option value="1">
+                Początkujący
+            </option>
+            <option value="2">
+                Średniozaawansowany
+            </option>
+            <option value="3">
+                Zaawansowany
+            </option>
+        </select>
+        <br>
+        <input type="button" onclick="jezyki()" value="wypisz">
+    </form>
+    <p id="p"></p>
+    <script>
+        function jezyki()
+        {
+            let form=document.getElementById("form");
+            let jez = [];
+            let zaaw = form["b"];
+            let i=0;
+            form["a"].forEach(e => {
+                if(e.checked)
+                {
+                    //jez.push(e.value);
+                    jez[e.value] = parseInt(zaaw[i].value);
+                }
+                i++;
+            });
+            if(form["inne"].value!="")
+            {
+                jez[form["inne"].value] = parseInt(zaaw[i].value);
+            }
+            jez=jez.sort();
+            console.log(jez);
+            document.getElementById("p").innerHTML="Języki, które znasz to: ";
+        }
+    </script>
+</body>
+</html>

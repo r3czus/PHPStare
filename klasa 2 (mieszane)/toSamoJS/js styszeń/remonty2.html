@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Kafelkowanie łazienki</h1>
+    <p>
+        powierzchnia w m<sup>2</sup>
+        <input type="number" id="pow">
+    </p>
+    <input type="radio" name="radio" value="70"> Płytki 20 x 20 cm <br>
+    <input type="radio" name="radio" value="80"> Płytki 25 x 12 cm <br>
+    <input type="button" value="PRZELICZ" onclick="przelicz()">
+    <p id="wynik"></p>
+
+    <script>
+        function przelicz()
+        {
+            let radio=document.getElementsByName('radio');
+            let m2=document.getElementById('pow').value;
+            console.log(radio);
+            let cena;
+            for(let i=0;i<radio.length;i++)
+            {
+                if(radio[i].checked)
+                { 
+                    cena=radio[i].value;
+                    cena=parseInt(cena);
+                    break;
+                }
+            }
+            if(cena>0)
+            {
+                let cenaKoniec=m2*cena;
+                document.getElementById('wynik').innerHTML="Koszt kafelkowania: "+cenaKoniec+" zł";
+            }
+            else
+            {
+                document.getElementById('wynik').innerHTML="Musisz wybrać rozmiar kafelek";
+            }
+        }
+    </script>
+
+</body>
+</html>
